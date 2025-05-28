@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  matches-deployment
+  labels:
+    app: matches
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matches
+  template:
+    metadata:
+      labels:
+        app: matches
+    spec:
+      containers:
+      - name: matches
+        image: lazarusyiann/matches:1.0
+        ports:
+        - containerPort: 5000
